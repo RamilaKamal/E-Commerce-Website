@@ -10,7 +10,6 @@ const AddProduct = () => {
   const [productImage, setProductImage] = useState('');
   const dispatch = useDispatch();
 
-  // Initialize or get the stack instance
   const productStack = createStack();
 
   const handleAddProduct = () => {
@@ -21,15 +20,12 @@ const AddProduct = () => {
       image: productImage,
     };
 
-    // Push the new product onto the stack
     productStack.push(productData);
 
-    // Dispatch the latest product from the stack
     const latestProduct = productStack.peek();
     console.log(latestProduct,"prod from prod")
     dispatch(setProductData(latestProduct));
 
-    // Reset form fields
     setProductName('');
     setProductPrice('');
     setProductCtg('');

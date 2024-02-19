@@ -22,6 +22,7 @@ const ProductSection = ({ heading, product , isCart }) => {
   };
 
   const displayProducts = sorted ? products : product;
+  console.log(displayProducts,"asdnasjkdnaj")
 
   return (
     <div>
@@ -41,7 +42,7 @@ const ProductSection = ({ heading, product , isCart }) => {
       </div>
       <div className='container my-4'>
         <div className='row'>
-          {displayProducts.map((product, index) => (
+          {displayProducts?.map((product, index) => (
             <div key={index} className='col-4'>
               <ProductCard product={product} isCart={isCart}/>
             </div>

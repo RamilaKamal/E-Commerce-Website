@@ -119,9 +119,6 @@ const myProducts = [
   },
 ]
 
-
-// components/YourComponent.js
-
 const Home = () => {
 
   const newProduct = useSelector((state) => state?.newProduct);
@@ -129,7 +126,6 @@ const Home = () => {
 
   const dispatch = useDispatch();
 
-  // Dispatch action to set men data in Redux store
   useEffect(() => {
     dispatch(setMenData(menData));
     dispatch(setWomenData(wonenData));
@@ -145,8 +141,13 @@ const Home = () => {
 
   return (
     <div>
-      <FeaturedProducts product={newProduct}/>
       <HeroSection />
+      {
+        newProduct ? (
+          <FeaturedProducts product={newProduct}/>
+        ):
+        ""
+      }
       <CategoriesSection />
       <ProductSection heading={sectionTitle} product={myProducts} />
     </div>
